@@ -1,0 +1,15 @@
+{
+  "name": "product-name-generator",
+  "version": "0.0.1",
+  "description": "Generate random names for products",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "RJ Zaworski <rj@rjzaworski.com>",
+  "license": "WTFPL",
+  "dependencies": {
+    "async": "~0.2.9",
+    "underscore": "~1.5.2"
+  }
+}
