@@ -17,7 +17,7 @@ Words.prototype.rand = function () {
   return this.words[index];
 };
 
-['has', 'find', 'filter', 'invoke'].forEach(function (func) {
+['filter', 'invoke'].forEach(function (func) {
   Words.prototype[func] = function () {
     var args = [].slice.call(arguments, 0);
     return new Words(_[func].apply(this.words, [this.words].concat(args)));

@@ -9,7 +9,6 @@ Wolverine
 Wolf
 Whale
 Weasel
-Water
 Wasp
 Walrus
 Wallaby
@@ -196,7 +195,6 @@ Caribou
 Camel
 Butterfly
 Buffalo
-African
 Boar
 Bison
 Bee
