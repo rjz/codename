@@ -1,67 +1,54 @@
 var _ = require('underscore'),
     fs = require('fs'),
-    path = require('path'),
-    async = require('async');
+    path = require('path');
+
+var Lists = require(path.resolve(__dirname, 'src/lists')),
+    Words = require(path.resolve(__dirname, 'src/words'));
+
+function pickFilename (stat, file) {
+  if (stat.isFile()) return file;
+}
+
+function toKey (file) {
+  return path.basename(file, path.extname(file));
+}
+
+function toWords (buf) {
+  return new Words(_.compact(buf.toString().split('\n')).map(capitalish).sort());
+}
+
+function readFile (f) {
+  return fs.readFileSync(f);
+}
 
 function capitalish (str) {
   return str[0].toUpperCase() + str.slice(1);
 }
 
-function dirFiles (dir, callback) {
+// List all real files in the directory
+function getDirectoryFilesSync (dir) {
 
   var fqpath = function (file) {
     return path.join(dir, file);
   };
 
-  var pickFilename = function (stat, file) {
-    if (stat.isFile()) return file;
-  };
+  var files = fs.readdirSync(dir).map(fqpath),
+      stats = files.map(fs.lstatSync);
 
-  fs.readdir(dir, function (err, results) {
-    var files;
-    if (err) return callback(err);
-    files = results.map(fqpath);
-    async.map(files, fs.lstat, function (err, stats) {
-      if (err) return callback(err);
-      callback(null, _.compact(_.map(_.object(files, stats), pickFilename)));
-    });
-  });
+  return _.compact(_.map(_.object(files, stats), pickFilename));
 }
 
-function getLists (dir, callback) {
+module.exports = function (opts) {;
 
-  var toKey = function (file) {
-    return path.basename(file, path.extname(file));
+  var defaults = {
+    dir: path.resolve(__dirname, 'resources')
   };
 
-  var toWords = function (buf) {
-    return _.compact(buf.toString().split('\n')).map(capitalish).sort();
-  };
+  var options = _.extend({}, defaults, opts);
 
-  dirFiles(dir, function (err, results) {
-    if (err) return callback(err);
-    async.map(results, fs.readFile, function (err, lists) {
-      if (err) return callback(err);
-      callback(null, _.object(results.map(toKey), lists.map(toWords)));
-    });
-  });
-}
+  var results = getDirectoryFilesSync(options.dir),
+      lists = results.map(readFile);
 
-//////////////////////////////////////
-
-getLists(path.resolve('./resources'), function (err, lists) {
-  function getWord (list) {
-    var index = Math.floor(Math.random(0, 1) * list.length);
-    return list[index];
-  }
-
-  function getAssonant (l1, l2) {
-    var first = getWord(l1),
-        second = getWord(_.filter(l2, function (w) { return w[0] == first[0]; }));
-    return [first, second];
-  }
-
-  console.log(getWord(lists.adjectives), getWord(lists.crayons));
-  console.log(getAssonant(lists.adjectives, lists.cities));
-});
+  return new Lists(_.object(results.map(toKey), lists.map(toWords)));
+};
 
