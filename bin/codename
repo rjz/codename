@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+
+var _ = require('lodash');
+
+var argv = require('optimist')
+  .default('lists', 'adjectives,crayons,animals')
+  .default('filters', 'alliterative,random').argv;
+
+var filters = argv.filters.split(','),
+    listNames = argv.lists.split(',');
+
+var result = require('../index')().generate(filters, listNames);
+
+process.stdout.write(result.join(' ') + '\n');
+

@@ -1,6 +1,23 @@
-# Product name generator
+# Codename generator
 
-Generates random names for product releases
+Generates codenames. What for, you ask?
+
+### Installation
+
+    $ npm install -g codename
+
+### Usage
+
+    $ codename \
+      --lists=crayons,adjectives,cities,animals \
+      --filters=alliterative,random
+
+### CLI Options
+
+  * `lists` - a comma-delimited list of the lists to be sourced for
+    name generation
+
+  * `filters` - a comma-delimited list of the filters to be applied
 
 ### Word Lists
 

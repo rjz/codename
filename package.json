@@ -1,15 +1,23 @@
 {
-  "name": "product-name-generator",
+  "name": "codename",
   "version": "0.0.1",
-  "description": "Generate random names for products",
+  "description": "Codename generator",
   "main": "index.js",
+  "bin": {
+    "codename": "./bin/codename"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/jshint/bin/jshint **/*.js && ./node_modules/jasmine-node/bin/jasmine-node test"
   },
   "author": "RJ Zaworski <rj@rjzaworski.com>",
   "license": "WTFPL",
   "dependencies": {
     "async": "~0.2.9",
-    "underscore": "~1.5.2"
+    "lodash": "~2.4.1",
+    "optimist": "0.3.7"
+  },
+  "devDependencies": {
+    "jshint": "~2.4.1",
+    "jasmine-node": "~1.12.0"
   }
 }
