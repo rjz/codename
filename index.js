@@ -1,9 +1,9 @@
 var _ = require('lodash'),
     path = require('path');
 
-var filters = require(path.resolve('./src', 'filters')),
-    generate = require(path.resolve('./src', 'generate')),
-    loadLists = require(path.resolve('./src', 'load'));
+var filters = require(path.resolve(__dirname, 'src', 'filters')),
+    generate = require(path.resolve(__dirname, 'src', 'generate')),
+    loadLists = require(path.resolve(__dirname, 'src', 'load'));
 
 function getFunction (obj, key) {
   if (_.isFunction(key)) return key;
@@ -24,9 +24,11 @@ module.exports = function (opts) {
       getFilter = _.partial(getFunction, filters);
 
   return {
-    generate: function (filters, listNames) {
-      return generate(listNames.map(getList), filters.map(getFilter));
-    }
+    filters: _.partial(_.keys, filters),
+    generate: function (filterNames, listNames) {
+      return generate(listNames.map(getList), filterNames.map(getFilter));
+    },
+    lists: _.partial(_.keys, filters)
   };
 };
 

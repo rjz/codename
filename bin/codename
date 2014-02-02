@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 
-var _ = require('lodash');
+var _ = require('lodash'),
+    path = require('path');
+
+var codename = require(path.join(__dirname, '../index'))();
 
 var argv = require('optimist')
   .default('lists', 'adjectives,crayons,animals')
@@ -9,7 +12,7 @@ var argv = require('optimist')
 var filters = argv.filters.split(','),
     listNames = argv.lists.split(',');
 
-var result = require('../index')().generate(filters, listNames);
+var result = codename.generate(filters, listNames);
 
 process.stdout.write(result.join(' ') + '\n');
 

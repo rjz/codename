@@ -19,7 +19,7 @@ var exports = module.exports = {
     });
   },
 
-  // A filter for returning a random item from `words`
+  // An output filter for returning a random item from `words`
   random: function (memo, words) {
     return _.sample(words);
   }

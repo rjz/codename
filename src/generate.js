@@ -7,8 +7,13 @@ function pairsByShortest (a, b) {
 
 // Returns `[[keys], [lists]]` sorted in order of grouping constraints;
 function byPlausibility (lists) {
-  var pairs = _.map(_.pairs(lists)).sort(pairsByShortest);
-  return _.zip.apply(_, pairs);
+  var pairs = _.pairs(lists).sort(pairsByShortest);
+
+  return pairs.reduce(function (memo, pair) {
+    memo[0].push(pair[0]);
+    memo[1].push(pair[1]);
+    return memo;
+  }, [[], []]);
 }
 
 /**
