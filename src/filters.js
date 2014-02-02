@@ -10,6 +10,12 @@ var exports = module.exports = {
     });
   },
 
+  // A filter to exclude `words` that already appear in `memo`
+  unique: function (memo, words) {
+    if (!memo.length) return words;
+    return _.difference(words, _.flatten(memo));
+  },
+
   // An output filter for returning a random item from `words`
   random: function (memo, words) {
     return _.sample(words);
