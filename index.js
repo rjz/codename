@@ -28,7 +28,7 @@ module.exports = function (opts) {
     generate: function (filterNames, listNames) {
       return generate(listNames.map(getList), filterNames.map(getFilter));
     },
-    lists: _.partial(_.keys, filters)
+    lists: _.partial(_.keys, lists)
   };
 };
 

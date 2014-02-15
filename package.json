@@ -3,6 +3,7 @@
   "version": "0.0.2",
   "description": "Codename generator",
   "main": "index.js",
+  "repository": "git://git@github.com:rjz/codename.git",
   "bin": {
     "codename": "./bin/codename"
   },
