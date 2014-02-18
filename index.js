@@ -26,6 +26,16 @@ module.exports = function (opts) {
   return {
     filters: _.partial(_.keys, filters),
     generate: function (filterNames, listNames) {
+      var unknownFilters = _.difference(filterNames, this.filters()),
+          unknownLists = _.difference(listNames, this.lists());
+
+      if (unknownFilters.length) {
+        return new ReferenceError('Unknown filter(s): ' + unknownFilters.join(', '));
+      }
+      else if (unknownLists.length) {
+        return new ReferenceError('Unknown lists(s): ' + unknownLists.join(', '));
+      }
+
       return generate(listNames.map(getList), filterNames.map(getFilter));
     },
     lists: _.partial(_.keys, lists)
