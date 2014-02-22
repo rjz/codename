@@ -1,6 +1,6 @@
 {
   "name": "codename",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Codename generator",
   "main": "index.js",
   "repository": "git://git@github.com:rjz/codename.git",
