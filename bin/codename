@@ -14,5 +14,10 @@ var filters = argv.filters.split(','),
 
 var result = codename.generate(filters, listNames);
 
-process.stdout.write(result.join(' ') + '\n');
+if (result instanceof Error) {
+  process.stderr.write(result.message + '\n');
+}
+else {
+  process.stdout.write(result.join(' ') + '\n');
+}
 

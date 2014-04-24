@@ -10,6 +10,10 @@ function getFunction (obj, key) {
   return obj[key];
 }
 
+function referenceError (type, arg) {
+  return new ReferenceError('Unknown ' + type + '(s): ' + arg);
+}
+
 module.exports = function (opts) {
 
   var defaults = {
@@ -30,10 +34,10 @@ module.exports = function (opts) {
           unknownLists = _.difference(listNames, this.lists());
 
       if (unknownFilters.length) {
-        return new ReferenceError('Unknown filter(s): ' + unknownFilters.join(', '));
+        return referenceError('filter', unknownFilters.join(', '));
       }
       else if (unknownLists.length) {
-        return new ReferenceError('Unknown lists(s): ' + unknownLists.join(', '));
+        return referenceError('list', unknownLists.join(', '));
       }
 
       return generate(listNames.map(getList), filterNames.map(getFilter));
