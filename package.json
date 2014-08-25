@@ -8,7 +8,10 @@
     "codename": "./bin/codename"
   },
   "scripts": {
-    "test": "./node_modules/jshint/bin/jshint **/*.js && ./node_modules/jasmine-node/bin/jasmine-node test"
+    "lint": "node_modules/jshint/bin/jshint",
+    "test": "./node_modules/jshint/bin/jshint **/*.js && ./node_modules/jasmine-node/bin/jasmine-node test",
+    "cover": "NODE_ENV=test istanbul cover ./node_modules/jasmine-node/bin/jasmine-node test && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "docs": "node -e 'require(\"./tasks\").docs([\"index.js\"])'"
   },
   "author": "RJ Zaworski <rj@rjzaworski.com>",
   "license": "WTFPL",
@@ -19,6 +22,12 @@
   },
   "devDependencies": {
     "jshint": "~2.4.1",
-    "jasmine-node": "~1.12.0"
+    "jasmine-node": "~1.12.0",
+    "coveralls": "~2.11.1",
+    "glob": "^4.0.5",
+    "hogan.js": "^1.0.2",
+    "istanbul": "~0.3.0",
+    "jshint": "~2.5.2",
+    "scrawl": "0.0.5"
   }
 }
