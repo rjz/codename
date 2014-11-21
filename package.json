@@ -9,7 +9,7 @@
   },
   "scripts": {
     "lint": "node_modules/jshint/bin/jshint",
-    "test": "./node_modules/jshint/bin/jshint **/*.js && ./node_modules/jasmine-node/bin/jasmine-node test",
+    "test": "npm run lint && ./node_modules/jasmine-node/bin/jasmine-node test",
     "cover": "NODE_ENV=test istanbul cover ./node_modules/jasmine-node/bin/jasmine-node test && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "docs": "node -e 'require(\"./tasks\").docs([\"index.js\"])'"
   },
