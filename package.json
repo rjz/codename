@@ -3,13 +3,16 @@
   "version": "0.0.3",
   "description": "Codename generator",
   "main": "index.js",
-  "repository": "git://git@github.com:rjz/codename.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rjz/codename"
+  },
   "bin": {
     "codename": "./bin/codename"
   },
   "scripts": {
     "lint": "node_modules/jshint/bin/jshint",
-    "test": "npm run lint && ./node_modules/jasmine-node/bin/jasmine-node test",
+    "test": "npm run lint && NODE_ENV=test ./node_modules/jasmine-node/bin/jasmine-node test",
     "cover": "NODE_ENV=test istanbul cover ./node_modules/jasmine-node/bin/jasmine-node test && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "docs": "node -e 'require(\"./tasks\").docs([\"index.js\"])'"
   },
@@ -31,3 +34,4 @@
     "scrawl": "0.0.5"
   }
 }
+
