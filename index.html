@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <title>codename</title>
+  </head>
+  <body>
+  <a href="git://git@github.com:rjz/codename.git"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+    <div class="content">
+      <section class="container">
+        <h1><a name="top"></a>codename</h1>
+
+        <div>
+          <p>Codename generator</p>
+        </div>
+
+        <h3>Contents</h3>
+        <ul>
+          <li><a href="git://git@github.com:rjz/codename.git">Source code</a></li>
+          <li><a href="git://git@github.com:rjz/codename.git/tree/master/README.md">Readme</a></li>
+          <li><a href="git://git@github.com:rjz/codename.git/tree/master/LICENSE">License (WTFPL)</a></li>
+            <li>
+              <a href="#undefined">undefined</a>
+              <ul>
+                <li>
+                  <a href="#undefined-codename"><code>codename</code></a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#exports">exports</a>
+              <ul>
+                <li>
+                  <a href="#exports-filters"><code>filters</code></a>
+                </li>
+                <li>
+                  <a href="#exports-generate"><code>generate</code></a>
+                </li>
+                <li>
+                  <a href="#exports-lists"><code>lists</code></a>
+                </li>
+              </ul>
+            </li>
+        </ul>
+
+          <hr />
+          <a name="undefined"></a>
+          <a name="undefined-codename"></a>
+<section>
+  <header>
+    <ul class="pull-right nav-meta nav-inline">
+      <li><a href="#"></a></li>
+      <li><a href="#top">top</a></li>
+    </ul>
+
+    <h3>
+      <a name="codename"></a><code>codename</code>
+      <small>(<a href="/tree/master/index.js#L17">definition</a>)</small>
+    </h3>
+  </header>
+  <div>
+
+    <p>Build a codename generator</p>
+
+
+    <h4>Arguments</h4>
+    <table>
+      <tr>
+        <th width="15%">Type</th>
+        <th width="15%">Name</th>
+        <th width="60%">Description</th>
+      </tr>
+      <tr>
+        <td><code>Object</code></td>
+        <td>opts</td>
+        <td>An object containing one param (`dir`) describing where to find word lists</td>
+      </tr>
+    </table>
+
+
+  </div>
+
+</section>
+
+          <hr />
+          <a name="exports"></a>
+          <a name="exports-filters"></a>
+<section>
+  <header>
+    <ul class="pull-right nav-meta nav-inline">
+      <li><a href="#"></a></li>
+      <li><a href="#top">top</a></li>
+    </ul>
+
+    <h3>
+      <a name="filters"></a><code>filters</code>
+      <small>(<a href="/tree/master/index.js#L41">definition</a>)</small>
+    </h3>
+  </header>
+  <div>
+
+    <p>A list of available filters</p>
+
+
+
+  </div>
+
+</section>
+
+          <a name="exports-generate"></a>
+<section>
+  <header>
+    <ul class="pull-right nav-meta nav-inline">
+      <li><a href="#"></a></li>
+      <li><a href="#top">top</a></li>
+    </ul>
+
+    <h3>
+      <a name="generate"></a><code>generate</code>
+      <small>(<a href="/tree/master/index.js#L50">definition</a>)</small>
+    </h3>
+  </header>
+  <div>
+
+    <p>A codename gneerator.</p>
+
+<pre><code>var codename = require('codename')();
+console.log(codename.generate(
+  ['adjectives', 'crayons'],
+  ['alliterative','random']
+));
+</code></pre>
+
+
+    <h4>Arguments</h4>
+    <table>
+      <tr>
+        <th width="15%">Type</th>
+        <th width="15%">Name</th>
+        <th width="60%">Description</th>
+      </tr>
+      <tr>
+        <td><code>Array</code></td>
+        <td>filterNames</td>
+        <td>a list of filters (by name) to limit the words selected for the codename</td>
+      </tr>
+      <tr>
+        <td><code>Array</code></td>
+        <td>listNames</td>
+        <td>a list of the wordlists to use when generating the codename</td>
+      </tr>
+    </table>
+
+
+  </div>
+
+</section>
+
+          <a name="exports-lists"></a>
+<section>
+  <header>
+    <ul class="pull-right nav-meta nav-inline">
+      <li><a href="#"></a></li>
+      <li><a href="#top">top</a></li>
+    </ul>
+
+    <h3>
+      <a name="lists"></a><code>lists</code>
+      <small>(<a href="/tree/master/index.js#L81">definition</a>)</small>
+    </h3>
+  </header>
+  <div>
+
+    <p>A list of available wordlists</p>
+
+
+
+  </div>
+
+</section>
+
+
+      </section>
+    </div>
+    <footer class="dark">
+      <p class="copyright">
+        Another unrepentant production from <a href="http://rjzaworski.com">rj zaworski</a>
+      </p>
+    </footer>
+  </body>
+</html>
+
