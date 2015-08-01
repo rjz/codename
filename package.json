@@ -1,6 +1,6 @@
 {
   "name": "codename",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Codename generator",
   "main": "index.js",
   "repository": {
@@ -25,12 +25,10 @@
     "optimist": "0.3.7"
   },
   "devDependencies": {
-    "jshint": "~2.4.1",
+    "jshint": "~2.5.2",
     "jasmine-node": "~1.12.0",
     "glob": "^4.0.5",
     "hogan.js": "^1.0.2",
-    "jshint": "~2.5.2",
     "scrawl-package": "0.0.1"
   }
 }
-
