@@ -14,7 +14,8 @@
     "lint": "node_modules/jshint/bin/jshint",
     "pretest": "npm run lint",
     "test": "jasmine-node test",
-    "docs": "node -e 'require(\"./tasks\").docs([\"index.js\"])'"
+    "docs": "node -e 'require(\"./tasks\").docs([\"index.js\"])'",
+    "pages": "bash tasks/pages.sh"
   },
   "author": "RJ Zaworski <rj@rjzaworski.com>",
   "license": "WTFPL",
@@ -26,12 +27,10 @@
   "devDependencies": {
     "jshint": "~2.4.1",
     "jasmine-node": "~1.12.0",
-    "coveralls": "~2.11.1",
     "glob": "^4.0.5",
     "hogan.js": "^1.0.2",
-    "istanbul": "~0.3.0",
     "jshint": "~2.5.2",
-    "scrawl": "0.0.5"
+    "scrawl-package": "0.0.1"
   }
 }
 
