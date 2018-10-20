@@ -21,7 +21,7 @@
   "license": "WTFPL",
   "dependencies": {
     "async": "~0.2.9",
-    "lodash": "~2.4.1",
+    "lodash": "^4.17.11",
     "optimist": "0.3.7"
   },
   "devDependencies": {
