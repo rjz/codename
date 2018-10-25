@@ -75,7 +75,7 @@ module.exports = function (opts) {
       return referenceError('list', unknownLists.join(', '));
     }
 
-    return generate(listNames.map(getList), filterNames.map(getFilter));
+    return generate(_.zipObject(listNames, listNames.map(getList)), filterNames.map(getFilter));
   };
 
   /**

@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
-var _ = require('lodash'),
-    path = require('path');
+var path = require('path');
 
 var codename = require(path.join(__dirname, '../index'))();
 
@@ -20,4 +19,3 @@ if (result instanceof Error) {
 else {
   process.stdout.write(result.join(' ') + '\n');
 }
-

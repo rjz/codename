@@ -32,7 +32,7 @@ function getDirectoryFilesSync (dir) {
   var files = fs.readdirSync(dir).map(fqpath),
       stats = files.map(fs.lstatSync);
 
-  return _.compact(_.map(_.object(files, stats), pickFilename));
+  return _.compact(_.map(_.zipObject(files, stats), pickFilename));
 }
 
 /**
@@ -43,6 +43,6 @@ module.exports = function loadLists (dir) {
       listNames = results.map(toKey),
       listContents = results.map(readFile).map(toNormalizedWords);
 
-  return _.object(listNames, listContents);
+  return _.zipObject(listNames, listContents);
 };
 

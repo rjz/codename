@@ -7,7 +7,7 @@ function pairsByShortest (a, b) {
 
 // Returns `[[keys], [lists]]` sorted in order of grouping constraints;
 function byPlausibility (lists) {
-  var pairs = _.pairs(lists).sort(pairsByShortest);
+  var pairs = _.toPairs(lists).sort(pairsByShortest);
 
   return pairs.reduce(function (memo, pair) {
     memo[0].push(pair[0]);
@@ -45,9 +45,9 @@ module.exports = function generate (lists, filters) {
     return null;
   }
 
-  results = _.object(kvs[0], words);
+  results = _.zipObject(kvs[0], words);
   getWordById = _.partial(_.result, results);
 
-  return _.keys(results).sort().map(getWordById);
+  return _.keys(lists).map(getWordById);
 };
 
